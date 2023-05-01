@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import Footer from "./Footer";
 const Home = () => {
   const slides = [
     {
@@ -43,15 +44,15 @@ const Home = () => {
       <div className="max-h-[500px] relative">
         {/* overly */}
         <div className="absolute w-full h-full text-gray-950 max-h-[500px] bg-black/2  flex flex-col justify-center">
-          <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:7xl">
-            The <span>Best</span>
+          <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:7xl font-bold">
+            The <span className="text-orange-50">Best</span>
           </h1>
-          <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:7xl">
-            Japanese<span>Chef</span>
+          <h1 className="px-4 text-4xl sm:text-5xl md:text-6xl lg:7xl font-bold">
+            Japanese<span className="text-orange-50">Chef</span>
           </h1>
         </div>
         <div>
-        <div className="max-w-[1400px] h-[780px] w-full m-auto py-4   group">
+        <div className="max-w-[1400px] h-[780px] w-full m-auto py-4  group">
           <div
             style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
             className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
@@ -78,6 +79,8 @@ const Home = () => {
         </div>
         </div>
       </div>
+
+      <Footer></Footer>
     </div>
   );
 };
