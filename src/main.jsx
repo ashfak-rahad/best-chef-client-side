@@ -8,6 +8,10 @@ import {
 } from "react-router-dom";
 import Main from './layout/Main';
 import Home from './components/Home';
+import Blog from './components/Blog';
+import { MdLogin } from 'react-icons/md';
+import Login from './components/Login';
+import Registation from './components/Registation';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +21,18 @@ const router = createBrowserRouter([
       {
         path:'/',
         element:<Home></Home>
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/sign',
+        element:<Registation></Registation>
       }
     ]
   },
