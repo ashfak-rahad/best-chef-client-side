@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BestFood from "./BestFood";
 import Foods from "./Foods";
 import Chefs from "./Chefs";
 
 const Home = () => {
+  const [load,setLoad]= useState();
+  useEffect(()=>{
+    fetch('')
+  },[])
+  
   return (
     <div>
       <div className="max-w-[1640px] mx-auto p-4">

@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
+  const [user,setUser]=useState();
 
-  const {signIn,signInWithGoogle }=useContext(AuthContext);
+  const {signIn,signInWithGoogle,signInGithub }=useContext(AuthContext);
   
     const handleLogin =event =>{
         event.preventDefault();
@@ -35,11 +36,28 @@ const Login = () => {
         console.log(error)
       })
     }
+    const handleGoogleSignOut =()=>{
+      signOut(auth)
+      .then(result =>{
+        console.log(result);
+        setUser(null);
+      })
+    }
+    const handleGithub =()=>{
+        signInGithub()
+        .then(result =>{
+            const loggedUser =result.user;
+            console.log (loggedUser)
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
         <div className="text-center ">
-          <h1 className="text-5xl font-bold"> Please Login!</h1>
+          <h1 className="text-5xl font-bold"> Login!</h1>
          
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -69,14 +87,26 @@ const Login = () => {
                
               </label>
             </div>
+            <label className="label">
+                <Link to='/sign' href="#" className="label-text-alt link link-hover">
+                  You are new user now Registetion?
+                </Link>
+              </label>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>
             <div className="form-control mt-6">
-              <button onClick={handleGoogleSignIn} className="btn btn-primary">Sing in to Google</button>
+             {
+              user?
+              <button onClick={handleGoogleSignOut} className="btn btn-primary">Sing Out</button>:
+              <button onClick={handleGoogleSignIn} className="btn btn-primary">Sing in to Google</button>}
+              
+            </div>
+            <div className="form-control mt-6">
+              <button onClick={handleGithub} className="btn btn-primary">Sing in to Github</button>
             </div>
           </form>
-          <Link to ="/register"><button className="btn btn-link">New to Auth Master</button></Link>
+         
         </div>
       </div>
     </div>

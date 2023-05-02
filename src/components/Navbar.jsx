@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose, AiFillTag } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const {user,logOut
+   }=useContext(AuthContext);
 
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
@@ -40,18 +43,16 @@ const Navbar = () => {
               Login
             </Link>
           </li>
-          <li>
-            <Link to="/sign" className="hover:text-gray-500" href="#">
-              Registation
-            </Link>
-          </li>
         </ul>
       </div>
       {/* avatar */}
-      <div className="avatar">
-        <div className="w-24 rounded-full">
-          <img className="w-6 h-6 rounded-full" src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
-        </div>
+      <div>
+        {user?.photoURL ? (
+          <img  className="w-[35px] h-[35px] rounded-full" src={user.photoURL} title={user.displayName} />
+        ) : (
+          ""
+        )}
+       
       </div>
 
       {/* Mobile Menu */}
@@ -93,11 +94,6 @@ const Navbar = () => {
             <li>
               <Link to="/login" className="hover:text-gray-500" href="#">
                 Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/sign" className="hover:text-gray-500" href="#">
-                Registation
               </Link>
             </li>
           </ul>

@@ -11,7 +11,7 @@ import {
 const Footer = () => {
     return (
         <div>
-            <div className='max-w-[1240px] mx-auto pb-20  py-40 px-4 grid lg:grid-cols-3 gap-8 text-white'>
+            <div className='max-w-[1240px] mx-auto pb-20  py-40 px-4 grid lg:grid-cols-3 gap-8 text-black'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Best Chef</h1>
         <p className='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id odit ullam iste repellat consequatur libero reiciendis, blanditiis accusantium.</p>
@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
       <div className='lg:col-span-2 flex justify-between mt-6'>
     <div>
-        <h6 className='font-medium text-white'>Solutions</h6>
+        <h6 className='font-medium  text-black'>Solutions</h6>
         <ul>
             <li className='py-2 text-sm'>Analytics</li>
             <li className='py-2 text-sm'>Marketing</li>
@@ -34,7 +34,7 @@ const Footer = () => {
         </ul>
     </div>
     <div>
-        <h6 className='font-medium text-white'>Support</h6>
+        <h6 className='font-medium text-black'>Support</h6>
         <ul>
             <li className='py-2 text-sm'>Pricing</li>
             <li className='py-2 text-sm'>Documentation</li>
@@ -43,7 +43,7 @@ const Footer = () => {
         </ul>
     </div>
     <div>
-        <h6 className='font-medium text-white'>Company</h6>
+        <h6 className='font-medium text-black'>Company</h6>
         <ul>
             
             <li className='py-2 text-sm'>Blog</li>
@@ -53,7 +53,7 @@ const Footer = () => {
         </ul>
     </div>
     <div>
-        <h6 className='font-medium text-white'>Legal</h6>
+        <h6 className='font-medium text-black'>Legal</h6>
         <ul>
             <li className='py-2 text-sm'>Claim</li>
             <li className='py-2 text-sm'>Policy</li>

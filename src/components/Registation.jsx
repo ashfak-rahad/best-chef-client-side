@@ -1,37 +1,41 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../provider/AuthProvider';
-
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const { user, createUser } = useContext(AuthContext);
+  // console.log(createUser);
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, email, password);
+    createUser(email, password)
+      .then((result) => {
+        setError("");
+        setSuccess("");
+        if (password.length < 6) {
+          setError("Please add at least 6 character in your password");
+          return;
+        }
 
-    const {user,createUser} = useContext(AuthContext);
-    console.log(createUser);
-    const handleRegister =(event)=>{
-        event.preventDefault();
-        const form = event.target;
-        const name =form.name.value;
-        const email = form .email.value;
-        const password =form.password.value;
-        console.log(name,email,password);
-      createUser(email,password)
-      .then(result=>{
-        const loggedUser =result.user;
-        console.log(loggedUser);
         form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-      })
-      .catch(error =>{
-        console.log (error)
-      })
-    }
-    
-    return (
-        <div className="hero min-h-screen bg-base-200">
+ 
+  return (
+    <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col ">
         <div className="text-center ">
-          <h1 className="text-5xl font-bold"> Please Register!</h1>
-         
+          <h1 className="text-5xl font-bold"> Register!</h1>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
@@ -41,9 +45,10 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                name ='name'
+                name="name"
                 placeholder="name"
-                className="input input-bordered" required
+                className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -52,9 +57,10 @@ const Register = () => {
               </label>
               <input
                 type="email"
-                name ='email'
+                name="email"
                 placeholder="email"
-                className="input input-bordered" required
+                className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -65,14 +71,21 @@ const Register = () => {
                 type="password"
                 placeholder="password"
                 name="password"
-                className="input input-bordered" required
+                className="input input-bordered"
+                required
               />
               <label className="label">
-                <Link to='/login' href="#" className="label-text-alt link link-hover">
+                <Link
+                  to="/login"
+                  href="#"
+                  className="label-text-alt link link-hover"
+                >
                   Already have an account?
                 </Link>
               </label>
             </div>
+            <p className="text-red-600">{error}</p>
+            <p className="text-indigo-800">{success}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register Now</button>
             </div>
@@ -80,7 +93,7 @@ const Register = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default Register;
