@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineClose, AiFillTag } from "react-icons/ai";
-import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
-import { TbTruckDelivery } from "react-icons/tb";
-import { FaUserFriends, FaWallet } from "react-icons/fa";
-import { MdFavorite, MdHelp } from "react-icons/md";
+
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -21,7 +18,7 @@ const Navbar = () => {
         </h1>
         <div className="hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px]">
           <p className="bg-black text-white rounded-full p-2">Best</p>
-          <p className="p-2">Pickup</p>
+          <p className="p-2">Chef</p>
         </div>
       </div>
 
@@ -53,7 +50,7 @@ const Navbar = () => {
       {/* avatar */}
       <div className="avatar">
         <div className="w-24 rounded-full">
-          <img className="w-8 h-8 rounded-full" src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
+          <img className="w-6 h-6 rounded-full" src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" />
         </div>
       </div>
 
@@ -82,7 +79,7 @@ const Navbar = () => {
           Best <span className="font-bold">Eats</span>
         </h2>
         <nav>
-          <ul className="flex flex-col p-4 text-gray-800">
+          <ul className="flex flex-col p-4 text-black">
             <li>
               <Link to="/" className="hover:text-gray-500" href="#">
                 Home
