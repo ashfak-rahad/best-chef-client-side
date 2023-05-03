@@ -1,20 +1,34 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
+import React, { useContext } from "react";
+
+import { useApiData } from "../provider/AuthDataProvider";
+import ChefsDetails from "./ChefsDetails";
+import Recipes from "./Recipes";
 
 const Chefs = () => {
-    const {Chefs } = useContext(AuthContext);
-    console.log(Chefs);
+  const { chefs } = useApiData();
+  
+  console.log(chefs);
 
-    return (
-        <div>
-            <h1 className=' text-center text-2xl pb-7 font-semibold'>Our Best Chefs</h1>
-            <div className='text-center'>
+  return (
+    <div className="main  lg:gap-1 justify-items-center">
+      <div className="col-span-2">
+        <h1 className="text-center  py-7 text-2xl font-semibold">
+          Our Best Chefs
+        </h1>
+       <div className="grid grid-cols-3 ">
+       {chefs.map((data) => (
+          <ChefsDetails data={data} key={data.id}></ChefsDetails>
+        ))}
+       </div>
+       {/* <div>
+       {
+            chefs.map().recipes.map(recipe=> <Recipes recipe={recipe}> </Recipes>)
+          }
+       </div> */}
 
-                <h4>This is chefs section  </h4>
-
-            </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Chefs;

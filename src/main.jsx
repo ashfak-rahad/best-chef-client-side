@@ -9,16 +9,19 @@ import {
 import Main from './layout/Main';
 import Home from './components/Home';
 import Blog from './components/Blog';
-import { MdLogin } from 'react-icons/md';
+
 import Login from './components/Login';
 import Registation from './components/Registation';
 import AuthProvider from './provider/AuthProvider';
 import { AuthDataProvider } from './provider/AuthDataProvider';
+import ErrorPage from './components/ErrorPage';
+import Recipes from './components/Recipes';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement:<ErrorPage/>,
     children:[
       {
         path:'/',
@@ -35,13 +38,18 @@ const router = createBrowserRouter([
       {
         path:'/sign',
         element:<Registation></Registation>
+      },
+      {
+        path:'/details',
+        element:<Recipes></Recipes>
       }
+      
     ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthDataProvider> <AuthProvider>  <RouterProvider router={router} /></AuthProvider></AuthDataProvider>
+    <AuthDataProvider> <AuthProvider>  <RouterProvider router={router}  /></AuthProvider></AuthDataProvider>
   </React.StrictMode>,
 )

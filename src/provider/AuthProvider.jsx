@@ -49,7 +49,7 @@ const AuthProvider = ({children}) => {
         signInGithub,
         signIn,
         logOut,
-        auth
+   
     }
 
     return (
