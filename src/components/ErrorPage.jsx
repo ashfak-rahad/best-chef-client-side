@@ -5,7 +5,7 @@ const ErrorPage = () => {
   const error = useRouteError();
 
   return (
-    <div className="text-center">
+    <div className="text-center  mx-16">
       <div id="error-page">
         
         <div>

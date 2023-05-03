@@ -8,32 +8,26 @@ const Recipes = () => {
   const { id, img, recipes, name, bio, experience } = recipeAll;
 
   console.log(id, img, recipes);
-  // const {id, name,description,image,ingredients,rating,cooking_method,recipes
-  // }=recipeAll;
+ 
   return (
     <div>
       <section>
-        <div className="card card-side bg-base-100 shadow-xl">
+        <div className="lg:flex justify-center gap-3 items-center">
           <figure>
-            <img
-              src={img}
-              alt="Movie"
-            />
+            <img src={img} alt="Movie" />
           </figure>
-          <div className="card-body">
-            <h2 className="card-title">{name}</h2>
-            <p>{bio}</p>
-            <p>{experience}</p>
-           
+          <div>
+            <h2 className="text-2xl font-semibold">{name}</h2>
+            <p>Bio:{bio}</p>
+            <p className="text-2xl font-semibold">{experience}</p>
           </div>
         </div>
       </section>
       <section>
-        <div  className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-        {recipes &&
-          recipes.map((re) => <DetailsChef key={id} re={re}></DetailsChef>)}
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
+          {recipes &&
+            recipes.map((re) => <DetailsChef key={id} re={re}></DetailsChef>)}
         </div>
-        
       </section>
     </div>
   );
