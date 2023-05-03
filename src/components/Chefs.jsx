@@ -6,7 +6,7 @@ import Recipes from "./Recipes";
 
 const Chefs = () => {
   const { chefs } = useApiData();
-  
+
   console.log(chefs);
 
   return (
@@ -15,17 +15,11 @@ const Chefs = () => {
         <h1 className="text-center  py-7 text-2xl font-semibold">
           Our Best Chefs
         </h1>
-       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-       {chefs.map((data) => (
-          <ChefsDetails data={data} key={data.id}></ChefsDetails>
-        ))}
-       </div>
-       {/* <div>
-       {
-            chefs.map().recipes.map(recipe=> <Recipes recipe={recipe}> </Recipes>)
-          }
-       </div> */}
-
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-7">
+          {chefs.map((data) => (
+            <ChefsDetails data={data} key={data.id}></ChefsDetails>
+          ))}
+        </div>
       </div>
     </div>
   );
