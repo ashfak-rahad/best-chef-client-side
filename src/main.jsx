@@ -13,6 +13,7 @@ import { MdLogin } from 'react-icons/md';
 import Login from './components/Login';
 import Registation from './components/Registation';
 import AuthProvider from './provider/AuthProvider';
+import { AuthDataProvider } from './provider/AuthDataProvider';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <AuthProvider>  <RouterProvider router={router} /></AuthProvider>
+    <AuthDataProvider> <AuthProvider>  <RouterProvider router={router} /></AuthProvider></AuthDataProvider>
   </React.StrictMode>,
 )

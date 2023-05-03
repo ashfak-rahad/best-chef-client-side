@@ -3,12 +3,20 @@ import { AiOutlineMenu, AiOutlineClose, AiFillTag } from "react-icons/ai";
 
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
-  const {user,logOut
+  const {user,logOut,auth
    }=useContext(AuthContext);
 
+   const handleGoogleSignOut =()=>{
+    signOut(auth)
+    .then(result =>{
+      console.log(result);
+      setUser(null);
+    })
+  }
   return (
     <div className="max-w-[1640px] mx-auto flex justify-between items-center p-4">
       {/* Left side */}
@@ -47,12 +55,32 @@ const Navbar = () => {
       </div>
       {/* avatar */}
       <div>
-        {user?.photoURL ? (
-          <img  className="w-[35px] h-[35px] rounded-full" src={user.photoURL} title={user.displayName} />
-        ) : (
-          ""
-        )}
-       
+      {user ? (
+            <>
+              <span className="text-black flex gap-4 items-center">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <button
+                  className="border rounded-2xl py-2 px-6  shadow-xl border-black bg-blue-500 text-white"
+                  onClick={ handleGoogleSignOut}
+                >
+                  Sign Out
+                </button>
+              </span>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="border rounded-2xl py-2 px-6  shadow-xl border-black bg-blue-500 text-white"
+              >
+                Login
+              </Link>
+            </>
+          )}
       </div>
 
       {/* Mobile Menu */}

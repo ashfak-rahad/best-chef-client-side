@@ -36,13 +36,7 @@ const Login = () => {
         console.log(error)
       })
     }
-    const handleGoogleSignOut =()=>{
-      signOut(auth)
-      .then(result =>{
-        console.log(result);
-        setUser(null);
-      })
-    }
+   
     const handleGithub =()=>{
         signInGithub()
         .then(result =>{
