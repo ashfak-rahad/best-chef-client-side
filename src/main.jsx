@@ -40,8 +40,9 @@ const router = createBrowserRouter([
         element:<Registation></Registation>
       },
       {
-        path:'/details',
-        element:<Recipes></Recipes>
+        path:'/details/:id',
+        element:<Recipes></Recipes>,
+        loader:({params})=>fetch(`https://b7a10-chef-recipe-hunter-server-side-ashfak-rahad-ashfak-rahad.vercel.app/chef/${params.id}`)
       }
       
     ]
