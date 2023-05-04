@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import DetailsChef from "./DetailsChef";
 
+
 const Recipes = () => {
   const recipeAll = useLoaderData();
   console.log(recipeAll);

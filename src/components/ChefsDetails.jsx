@@ -4,6 +4,13 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // const [like,setLike]=useState(false);
 const ChefsDetails = ({ data }) => {
+    const [isLiked, setIsLiked] = useState(false)
+
+   
+    const hangleFavoriteBtn = () => {
+        toast("Added in Favorite")
+            setIsLiked(true)
+        }
     const likeButton =()=>{
         // setLike(true)
       toast('added food')
@@ -27,7 +34,7 @@ const ChefsDetails = ({ data }) => {
             recipes.map(recipe=> <p> {recipe.name}</p>)
           }</>
           
-            <button  onClick={likeButton}  className="btn btn-primary"> Like</button>
+            <button  onClick={hangleFavoriteBtn}  className={isLiked ? "btn-disabled" : "btn btn-primary"}> Like</button>
             <ToastContainer />
           
           
