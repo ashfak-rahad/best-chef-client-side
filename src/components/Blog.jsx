@@ -1,11 +1,23 @@
-import React from "react";
+import jsPDF from "jspdf";
 
 const Blog = () => {
+
+  const downloadPdf = () => {
+
+    const doc = new jsPDF("landscape", "px", "a4", "false")
+        doc.text("This blog page short summary", 20, 30)
+
+
+        doc.text("In software development, there are two types of components: uncontrolled and controlled. \n Uncontrolled components rely on the browser or environment, while controlled components \n are managed by the application code.  React PropTypes is a way to \n validate props in components. \n Node.js is a runtime environment for executing JavaScript code outside of a web browser, primarily \n used for building server-side applications. \n Custom hooks are a useful tool in React for reusing logic across components.", 20, 50);
+        
+        doc.save("blog-information.pdf")
+}
   return (
     <div className="px-7 mx-auto">
       
       <div >
-        <h1 className="className=' text-center text-2xl pb-7 font-semibold'">
+        <button onClick={downloadPdf} className="bg-indigo-500 px-4 py-2 block mx-auto text-white my-10">Download to PDF</button>
+        <h1 className="text-center text-2xl pb-7 font-semibold">
           Tell us the differences between uncontrolled and controlled
           components.
         </h1>

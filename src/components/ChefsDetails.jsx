@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 
 // const [like,setLike]=useState(false);
@@ -9,7 +10,7 @@ const ChefsDetails = ({ data }) => {
     <div>
       <div className="card card-compact w-96 bg-base-100 shadow-xl">
         <figure>
-          <img className="w-96 h-96" src={img} alt="chefs" />
+        <img className="w-96 h-96" src={img} alt="chefs" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{name}</h2>
