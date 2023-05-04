@@ -9,3 +9,6 @@
     @apply border border-black rounded-xl px-5 py-1
   }
 }
+.active {
+  @apply underline text-[#289944] font-bold
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -9,11 +9,13 @@ const ErrorPage = () => {
       <div id="error-page">
         
         <div>
-            <img  src="https://img.freepik.com/free-vector/404-error-template-with-planet-flat-style_23-2147731776.jpg?w=740&t=st=1683122641~exp=1683123241~hmac=1a70305e2e84677cf25d6abc5b683fee4f6c737df371c4dffaf3a28957480a1f" alt="" />
+            <img className="md:w-1/2 px-3 mx-auto " src="https://img.freepik.com/free-vector/404-error-with-cute-animal-concept-illustration_114360-1931.jpg?w=740&t=st=1683210853~exp=1683211453~hmac=9ddfcbaeca54741bb09269c99cf7ca84dbb059a80cf44f548b6e2282ee2f2c2b" alt="" />
         </div>
+        
         <p>
           <i>{error.statusText || error.message}</i>
         </p>
+        <Link className="btn btn-outline" to ="/">Go to Home</Link>
       </div>
     </div>
   );

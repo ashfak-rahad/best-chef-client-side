@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineMenu, AiOutlineClose, AiFillTag } from "react-icons/ai";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { signOut } from "firebase/auth";
 
@@ -37,19 +37,19 @@ const Navbar = () => {
       <div className="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
         <ul className="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
           <li>
-            <Link to="/" className="hover:text-gray-500" href="#">
+          <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
               Home
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/blog" className="hover:text-gray-500" href="#">
+            <NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""}>
               Blog
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/login" className="hover:text-gray-500" href="#">
+            <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""} >
               Login
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -73,12 +73,12 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link
+              <NavLink
                 to="/login"
                 className="border rounded-2xl py-2 px-6  shadow-xl border-black bg-blue-500 text-white"
               >
                 Login
-              </Link>
+              </NavLink>
             </>
           )}
       </div>
@@ -110,19 +110,19 @@ const Navbar = () => {
         <nav>
           <ul className="flex flex-col p-4 text-black">
             <li>
-              <Link to="/" className="hover:text-gray-500" href="#">
+            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/blog" className="hover:text-gray-500" href="#">
+              <NavLink to="/blog" className={({ isActive }) => isActive ? "active" : ""} >
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/login" className="hover:text-gray-500" href="#">
+              <NavLink to="/login" className={({ isActive }) => isActive ? "active" : ""} >
                 Login
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
