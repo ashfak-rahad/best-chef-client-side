@@ -13,20 +13,18 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    
     console.log(name, email, password);
     createUser(email, password)
       .then((result) => {
         setError("");
-        setSuccess("");
-        if (password.length < 6) {
-          setError("Please add at least 6 character in your password");
-          return;
-        }
+        setSuccess("Successfully login");
+        
 
         form.reset();
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.message);
       });
   };
 

@@ -11,7 +11,7 @@ const Navbar = () => {
    }=useContext(AuthContext);
 
    const handleGoogleSignOut =()=>{
-    signOut(auth)
+    logOut()
     .then(result =>{
       console.log(result);
       setUser(null);

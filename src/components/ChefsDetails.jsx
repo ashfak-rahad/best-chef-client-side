@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// const [like,setLike]=useState(false);
 const ChefsDetails = ({ data }) => {
+    const likeButton =()=>{
+        // setLike(true)
+      toast('added food')
+
+    }
   const {id, img,name,bio,experience,recipes } = data;
   return (
     <div>
@@ -19,6 +26,10 @@ const ChefsDetails = ({ data }) => {
           <>Recipes:{
             recipes.map(recipe=> <p> {recipe.name}</p>)
           }</>
+          
+            <button  onClick={likeButton}  className="btn btn-primary"> Like</button>
+            <ToastContainer />
+          
           
           <div className="card-actions justify-end">
             <Link to={`/details/${id}`}><button className="btn btn-primary">Views Recipes</button></Link>
