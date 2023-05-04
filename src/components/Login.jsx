@@ -92,12 +92,12 @@ const Login = () => {
             <div className="form-control mt-6">
              {
               user?
-              <button onClick={handleGoogleSignOut} className="btn btn-primary">Sing Out</button>:
-              <button onClick={handleGoogleSignIn} className="btn btn-primary">Sing in to Google</button>}
+              <button onClick={handleGoogleSignOut} className="btn btn-primary">Sign Out</button>:
+              <button onClick={handleGoogleSignIn} className="btn btn-primary">Sign in to Google</button>}
               
             </div>
             <div className="form-control mt-6">
-              <button onClick={handleGithub} className="btn btn-primary">Sing in to Github</button>
+              <button onClick={handleGithub} className="btn btn-primary">Sign in to Github</button>
             </div>
           </form>
          

@@ -16,6 +16,7 @@ import AuthProvider from './provider/AuthProvider';
 import { AuthDataProvider } from './provider/AuthDataProvider';
 import ErrorPage from './components/ErrorPage';
 import Recipes from './components/Recipes';
+import PrivateRoutes from './routes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/details/:id',
-        element:<Recipes></Recipes>,
+        element:<PrivateRoutes><Recipes></Recipes></PrivateRoutes>,
         loader:({params})=>fetch(`https://b7a10-chef-recipe-hunter-server-side-ashfak-rahad-ashfak-rahad.vercel.app/chef/${params.id}`)
       }
       
