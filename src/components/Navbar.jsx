@@ -3,7 +3,7 @@ import { AiOutlineMenu, AiOutlineClose, AiFillTag } from "react-icons/ai";
 
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { signOut } from "firebase/auth";
+
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -13,8 +13,7 @@ const Navbar = () => {
    const handleGoogleSignOut =()=>{
     logOut()
     .then(result =>{
-      console.log(result);
-      setUser(null);
+      
     })
   }
   return (

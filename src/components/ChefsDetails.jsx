@@ -18,8 +18,8 @@ const ChefsDetails = ({ data }) => {
           <p>{experience}</p>
           <>
             Recipes:
-            {recipes.map((recipe) => (
-              <p> {recipe.name}</p>
+            {recipes.map((recipe,index) => (
+              <p key={index}> {recipe.name}</p>
             ))}
           </>
 
