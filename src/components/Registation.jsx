@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
+import app from "../firebase/firebase.init";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -8,6 +10,7 @@ const Register = () => {
   const navigate =useNavigate();
   const { user, createUser } = useContext(AuthContext);
   // console.log(createUser);
+  const auth =getAuth(app); 
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,10 +24,13 @@ const Register = () => {
       .then((result) => {
         setError("");
         setSuccess("Successfully login");
-        updateProfile(loggedUser,{
-          displayName:name,photoURL:photoUrl
+        updateProfile(auth.currentUser,{
+          displayName:name,photoURL:photoURL
         })
-        navigate('/login')
+        .then(()=>{
+          navigate('/login')
+        })
+        
         
 
         form.reset();
@@ -60,7 +66,7 @@ const Register = () => {
                 <span className="label-text">phoURL</span>
               </label>
               <input
-                type="email"
+                type="text"
                 name="photoURL"
                 placeholder="photoURL"
                 className="input input-bordered"

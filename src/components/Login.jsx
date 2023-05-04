@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Login = () => {
+  const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location)
+    const from = location.state?.from?.pathname || '/'
   const [user,setUser]=useState();
 
   const {signIn,signInWithGoogle,signInGithub }=useContext(AuthContext);
@@ -17,6 +21,7 @@ const Login = () => {
 
    signIn (email,password)
    .then(result =>{
+    navigate(from)
     const loggedUser = result.user;
     console.log(loggedUser)
    })
@@ -28,6 +33,7 @@ const Login = () => {
     const handleGoogleSignIn =()=>{
       signInWithGoogle()
       .then(result =>{
+        navigate(from)
         const loggedUser = result.user;
         console.log(loggedUser);
       
@@ -40,6 +46,7 @@ const Login = () => {
     const handleGithub =()=>{
         signInGithub()
         .then(result =>{
+          navigate(from)
             const loggedUser =result.user;
             console.log (loggedUser)
         })
