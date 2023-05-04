@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate =useNavigate();
   const { user, createUser } = useContext(AuthContext);
   // console.log(createUser);
   const handleRegister = (event) => {
@@ -13,12 +14,17 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photoURL =form.photoURL.value;
     
-    console.log(name, email, password);
+    console.log(name, email, password ,photoURL);
     createUser(email, password)
       .then((result) => {
         setError("");
         setSuccess("Successfully login");
+        updateProfile(loggedUser,{
+          displayName:name,photoURL:photoUrl
+        })
+        navigate('/login')
         
 
         form.reset();
@@ -45,6 +51,18 @@ const Register = () => {
                 type="text"
                 name="name"
                 placeholder="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">phoURL</span>
+              </label>
+              <input
+                type="email"
+                name="photoURL"
+                placeholder="photoURL"
                 className="input input-bordered"
                 required
               />
@@ -85,7 +103,7 @@ const Register = () => {
             <p className="text-red-600">{error}</p>
             <p className="text-indigo-800">{success}</p>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register Now</button>
+            <button className="btn btn-primary">Register Now</button>
             </div>
           </form>
         </div>
