@@ -14,7 +14,10 @@ const Footer = () => {
             <div className='max-w-[1240px] mx-auto pb-20  py-40 px-4 grid lg:grid-cols-3 gap-8 text-black'>
       <div>
         <h1 className='w-full text-3xl font-bold text-[#00df9a]'>Best Chef</h1>
-        <p className='py-4'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id odit ullam iste repellat consequatur libero reiciendis, blanditiis accusantium.</p>
+        <p className='py-4'>This website is run by a Japanese cook who shares traditional Japanese recipes, as well as information about Japanese ingredients and cooking techniques.</p>
+        <p><span className='font-semibold'>Phone:</span>+81778620166</p>
+        <p><span className='font-semibold'>Email:</span>ahsfakur@gmail.com</p>
+        <p><span className='font-semibold'>Address:</span>V94F+RM4,Beni Kindo Lane,Japan</p>
         <div className='flex justify-between md:w-[75%] my-6'>
             <FaFacebookSquare size={30} />
             <FaInstagram size={30} />

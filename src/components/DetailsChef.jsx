@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 const DetailsChef = ({ re }) => {
   const [isLiked, setIsLiked] = useState(false);
 
-  const hangleFavoriteBtn = () => {
-    toast("Added in Favorite");
+  const handleFavorite = () => {
+    toast("I like it!");
     setIsLiked(true);
   };
 
@@ -21,15 +21,15 @@ const DetailsChef = ({ re }) => {
     recipes,
   } = re;
   return (
-    <div>
-      <div className="card w-96 bg-base-100 ">
+    <div className="px-5">
+      <div className=" w-96 bg-base-100  ">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl w-full object-cover h-[50vh] " />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{name}</h2>
           <button
-            onClick={hangleFavoriteBtn}
+            onClick={handleFavorite}
             className={isLiked ? "btn-disabled" : "btn btn-primary"}
           >
             {" "}
@@ -47,6 +47,8 @@ const DetailsChef = ({ re }) => {
             Rating:<button>{rating}</button>
           </>
         </div>
+        
+        
       </div>
     </div>
   );

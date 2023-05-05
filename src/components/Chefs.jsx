@@ -12,7 +12,7 @@ const Chefs = () => {
   return (
     <div className="main  lg:gap-1 justify-items-center">
       <div className="col-span-2">
-        <h1 className="text-center  py-7 text-2xl font-semibold">
+        <h1 className="text-orange-600 font-bold text-4xl text-center">
           Our Best Chefs
         </h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 my-7">
