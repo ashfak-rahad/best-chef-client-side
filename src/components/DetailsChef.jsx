@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {  FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from "react-rating";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -36,15 +39,21 @@ const DetailsChef = ({ re }) => {
             Like
           </button>
           <ToastContainer />
-          <p>Description:{description}</p>
+          <p><span className="text-2xl font-bold">Description:</span>{description}</p>
           <>
-            Ingredients:<p>{ingredients}</p>
+            <p><span className="text-2xl font-bold">Ingredients:</span>{ingredients}</p>
           </>
           <>
-            Cooking-Method:<p>{cooking_method}</p>
+            <p><span className="text-2xl font-bold" >Cooking-Method:</span>{cooking_method}</p>
           </>
           <>
-            Rating:<button>{rating}</button>
+          
+            <p><span className="text-2xl font-bold">Rating:</span><button>
+            <Rating
+          placeholderRating={rating}
+  emptySymbol={<FaRegStar/>}
+  placeholderSymbol={<FaStar ></FaStar>}
+          />{rating}</button></p>
           </>
         </div>
         
