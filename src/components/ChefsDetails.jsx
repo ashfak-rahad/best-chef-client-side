@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 
 const ChefsDetails = ({ data }) => {
-  const { id, img, name, bio, experience, recipes } = data;
+  const { id, img, name, bio, experience, recipes ,like} = data;
   return (
-    <div className="max-w-[1640px] m-auto p-4 px-4 py-12 ">
+    <div className="max-w-[1240px] m-auto p-4 px-4 py-12 ">
       {/* display chefs */}
       <div className="border shadow-lg rounded-lg hover:scale-105 duration-300">
         <img
@@ -26,12 +26,14 @@ const ChefsDetails = ({ data }) => {
             <span className="text-xl font-bold">Experience:</span>
             <span>{experience}</span>
           </p>
+          <p><span className="text-xl font-bold">Like:</span>{like}</p>
           <>
             <span className="text-xl font-bold"> Recipes:</span>
             {recipes.map((recipe, index) => (
               <p key={index}>{recipe.name}</p>
             ))}
           </>
+          
           <div>
             <Link to={`/details/${id}`}>
               <button className="btn btn-primary">Views Recipes</button>

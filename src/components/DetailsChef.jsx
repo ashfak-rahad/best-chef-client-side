@@ -21,8 +21,8 @@ const DetailsChef = ({ re }) => {
     recipes,
   } = re;
   return (
-    <div className="px-5">
-      <div className=" w-96 bg-base-100  ">
+    <div className="">
+      <div className=" w-full bg-base-100  ">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl w-full object-cover h-[50vh] " />
         </figure>

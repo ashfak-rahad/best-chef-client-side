@@ -11,11 +11,11 @@ const Recipes = () => {
   console.log(id, img, recipes);
  
   return (
-    <div>
+    <div className="px-3">
       <section>
         <div className="lg:flex justify-center gap-3 items-center">
           <figure>
-            <img src={img} alt="Movie" />
+            <img className="w-full" src={img}  />
           </figure>
           <div>
             <h2 className="text-2xl font-semibold">{name}</h2>
